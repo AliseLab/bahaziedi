@@ -9,7 +9,7 @@ exports.config = {
 
 	site: {
 		title: 'Baha "5 ziedi" kabātā - Tavam līdzsvaram pamatā!',
-		default_language: 'en',
+		default_language: 'lv',
 	},
 	
 	sections: [

@@ -5,8 +5,13 @@ section.home h3 {
 }
 
 section.home h1 {
+	margin-top: 100px;
 	text-align: center;
-	font-size: 4em;
+	font-size: 1.5em;
 	color: rgb( 121, 186, 106 );
 	font-weight: bold;
+}
+
+section.home h3 {
+	font-size: 1.1em;
 }

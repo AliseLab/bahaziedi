@@ -68,6 +68,10 @@ section {
 	position: relative;
 }
 
+section.noalign {
+	min-height: 0;
+}
+
 section.faded {
 	opacity: 0;
 }
