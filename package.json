@@ -1,0 +1,22 @@
+{
+	"name": "aliselab_home",
+	"version": "1.0.0",
+	"description": "AliseLab home page",
+	"author": "",
+	"main": "app.js",
+	"scripts": {
+		"start": "node app.js"
+	},
+	"dependencies": {
+		"body-parser": "*",
+		"express": "*",
+		"express-locale": "*",
+		"express-translate": "*",
+		"node-gyp": "^3.6.2",
+		"nodemailer": "*",
+		"twig": "*",
+		"express-asset-manager": "*",
+		"node-minify": "*",
+		"express-minify-html": "*"
+	}
+}

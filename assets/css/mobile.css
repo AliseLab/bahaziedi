@@ -1,0 +1,64 @@
+header .mobile-menu {
+	display: none;
+}
+
+@media screen and ( max-width: 1000px ) {
+	header .mobile-menu {
+		display: block;
+		float: right;
+		font-size: 3em;
+		margin-top: 0.2em;
+		margin-right: 0.6em;
+		margin-bottom: 0.6em;
+		color: white;
+		cursor: pointer;
+	}
+
+	header .mobile-menu:hover,
+	header .mobile-menu.active {
+		color: #01c7e1;
+	}
+
+	header nav {
+		display: none;
+	}
+	
+	header nav.mobile-visible {
+		display: block;
+		position: fixed;
+		background-color: rgba(36,36,36,0.9);
+		right: 0;
+		padding: 0 2em;
+		list-style: none;
+	}
+	
+	header nav.mobile-visible a {
+		display: list-item !important;
+		text-align: center;
+		margin: 0.1em 0;
+		font-size: 1.25em !important;
+	}
+	
+	header nav.mobile-visible a::after {
+		display: none !important;
+	}
+	
+	@media screen and ( max-height: 356px ) {
+		header nav.mobile-visible a {
+			font-size: 0.97em !important;
+		}
+	}
+	
+	@media screen and ( max-height: 302px ) {
+		header nav.mobile-visible a {
+			font-size: 0.84em !important;
+		}
+	}
+	
+	@media screen and ( max-height: 258px ) {
+		header nav.mobile-visible a {
+			font-size: 0.64em !important;
+		}
+	}
+}
+

@@ -1,0 +1,40 @@
+{% extends 'layouts/main.html.twig' %}
+
+{% block content %}
+
+<header>
+	<div class="first">
+    	<span class="languages">
+    		{% for lang, label in languages %}
+    			<a href="/{{ lang }}" {% if lang == language %} class="active" {% endif %}>{{ label }}</a>
+    		{% endfor %}
+    	</span>
+	</div>
+	<div class="second switcher">
+    	<div class="mobile-menu fa fa-bars"></div>
+    	<nav>
+    		{% for section in config.sections %}
+        		<a href="#{{ section }}">{{ t( 'section_' ~ section ) }}</a>
+        	{% endfor %}
+    	</nav>
+    	<div class="clear"></div>
+    </div>
+</header>
+
+{% for section in config.sections %}
+	{% set label = 'section_' ~ section %}
+	<section data-section="{{ section }}" class="{{ section }} faded">
+		<span class="anchor" id="{{ section }}"></span>
+		<article>
+			<h1>{{ t( label ) }}</h1>
+			{% include 'sections/' ~ section ~ '.html.twig' %}
+		</article>
+	</section>
+{% endfor %}
+
+
+<footer>
+    {{ t( 'all_rights_reserved' ) }}
+</footer>
+
+{% endblock %}

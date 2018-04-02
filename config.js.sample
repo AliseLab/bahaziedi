@@ -1,0 +1,43 @@
+exports.config = {
+
+	debug: true,
+	create_assets: false,
+
+	server: {
+		port: 8080,
+	},
+
+	site: {
+		title: 'AliseLab',
+		default_language: 'en',
+		phone: '12345678',
+		social: {
+			facebook: 'https://www.facebook.com/AliseLabCom/',
+			vkontakte: 'https://vk.com',
+			email: 'myemail@gmail.com',
+		},
+	},
+	
+	sections: [
+		'about', 'forwhom', 'services', 'portfolio', 'reviews', 'questions', 'contacts',
+	],
+
+	mail: {
+		transport: {
+			service: 'gmail',
+			auth: {
+				user: 'youremail@gmail.com',
+				pass: 'yourpassword',
+			},
+			tls: {
+				rejectUnauthorized: false,
+			},
+		},
+		destination: 'myemail@gmail.com',
+	},
+	
+	ga_id: '',
+	metrika_id: '',
+	jivosite_id: '',
+	
+};
