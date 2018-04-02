@@ -17,9 +17,9 @@
 			<div class="preview">
 				{% for image in product_images[ section ] %}
 					<div>
-						<a target="_blank" href="{{ image.original }}">
+						{#<a target="_blank" href="{{ image.original }}">#}
 							<img alt="{{ config.site.title }}" src="{{ image.preview }}"/>
-						</a>
+						{#</a>#}
 					</div>
 				{% endfor %}
 			</div>

@@ -8,12 +8,12 @@ exports.config = {
 	},
 
 	site: {
-		title: 'Baha "5 ziedi" kabātā - Tavam līdzsvaram pamatā!',
+		title: 'Baha "5 ziedi"',
 		default_language: 'lv',
 	},
 	
 	sections: [
-		'bubblegum', 'candy', 'blackberry', 'basket', 'contacts',
+		'bubblegum', 'candy', 'pastilla', 'basket', 'contacts',
 	],
 
 	mail: {
