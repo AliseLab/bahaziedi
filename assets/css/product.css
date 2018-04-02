@@ -1,0 +1,85 @@
+.product .body {
+	margin-top: 1em;
+	padding: 1em;
+	border: 1px solid silver;
+	text-align: center;
+}
+
+@media screen and ( max-width: 400px ) {
+	.product .body {
+		border-left: none;
+		border-right: none;
+	}
+}
+
+.product .body h1 {
+	text-align: center;
+	margin: 0;
+	border-bottom: 1px solid silver;
+}
+
+.product .body .rating .stars {
+	color: rgb( 255, 199, 9 );
+}
+
+.product .body .gallery img {
+	max-width: 100%;
+	max-height: 60vh;
+	overflow: hidden;
+}
+
+@media screen and ( min-width: 760px ) {
+	.product .body .gallery {
+		float: left;
+		width: 42%;
+	}
+	.product .body .info {
+		width: 58%;
+		float: right;
+	}
+
+}
+
+.product .body .info .buy {
+	background: rgb( 245, 245, 245 );
+	font-size: 1.3em;
+	margin-top: 2em;
+	padding: 1em 2em;
+	text-align: center;
+	display: inline-block;
+}
+
+.product .body .info .buy .price {
+	color: rgb( 230, 160, 0 );
+	float: left;
+	font-size: 1.2em;
+}
+
+.product .body .info .buy input {
+	width: 3em;
+	text-align: center;
+	float: right;
+	margin-top: 0.3em;
+}
+
+.product .body .info .buy button {
+	width: 100%;
+}
+
+.product .body .info .description {
+	text-align: left;
+}
+
+.product .body .info .description p {
+	text-indent: 1em;
+}
+
+.product .body .info .description table {
+	width: 100%;
+}
+
+.product .body .info .description table tr td {
+	border: 1px solid silver;
+	margin:0;
+	padding:0.2em 0.4em;
+}

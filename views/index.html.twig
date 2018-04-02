@@ -21,13 +21,18 @@
     </div>
 </header>
 
+<section data-section="home" class="home faded">
+	<span class="anchor" id="home"></span>
+	<article>
+		{% include 'sections/' ~ language ~ '.home.html.twig' %}
+	</article>
+</section>
+
 {% for section in config.sections %}
-	{% set label = 'section_' ~ section %}
 	<section data-section="{{ section }}" class="{{ section }} faded">
 		<span class="anchor" id="{{ section }}"></span>
 		<article>
-			<h1>{{ t( label ) }}</h1>
-			{% include 'sections/' ~ section ~ '.html.twig' %}
+			{% include 'sections/' ~ language ~ '.' ~ section ~ '.html.twig' %}
 		</article>
 	</section>
 {% endfor %}

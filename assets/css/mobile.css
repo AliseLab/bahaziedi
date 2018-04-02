@@ -2,7 +2,7 @@ header .mobile-menu {
 	display: none;
 }
 
-@media screen and ( max-width: 1000px ) {
+@media screen and ( max-width: 100px ) {
 	header .mobile-menu {
 		display: block;
 		float: right;
@@ -26,7 +26,7 @@ header .mobile-menu {
 	header nav.mobile-visible {
 		display: block;
 		position: fixed;
-		background-color: rgba(36,36,36,0.9);
+		background-color: rgb(251,200,39);
 		right: 0;
 		padding: 0 2em;
 		list-style: none;

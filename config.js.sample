@@ -8,18 +8,12 @@ exports.config = {
 	},
 
 	site: {
-		title: 'AliseLab',
+		title: 'Baha "5 ziedi" kabātā - Tavam līdzsvaram pamatā!',
 		default_language: 'en',
-		phone: '12345678',
-		social: {
-			facebook: 'https://www.facebook.com/AliseLabCom/',
-			vkontakte: 'https://vk.com',
-			email: 'myemail@gmail.com',
-		},
 	},
 	
 	sections: [
-		'about', 'forwhom', 'services', 'portfolio', 'reviews', 'questions', 'contacts',
+		'bubblegum', 'candy', 'blackberry', 'basket', 'contacts',
 	],
 
 	mail: {

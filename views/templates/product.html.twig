@@ -1,0 +1,50 @@
+<div class="product">
+	
+	<div class="body">
+		<h1>{% block title %}{% endblock %}</h1>
+
+		<div class="rating">
+			<span class="stars">
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+				<i class="fas fa-star"></i>
+			</span>
+		</div>
+		
+		<div class="gallery">
+			<div class="preview">
+				{% for image in product_images[ section ] %}
+					<div>
+						<a target="_blank" href="{{ image.original }}">
+							<img alt="{{ config.site.title }}" src="{{ image.preview }}"/>
+						</a>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+		
+		<div class="info">
+		
+			<div class="buy">
+				<span class="price">{% block price %}{% endblock %} &euro;</span>
+				<input type="number" name="qty" value="1" min="1" />
+				<button name="buy">{{ add_to_basket }}</button>
+				
+			</div>
+			
+			<div class="description">
+				{% block description %}
+				{% endblock %}
+			</div>
+		</div>
+			
+		
+		<div class="clear"></div>
+
+		
+	</div>
+	
+	
+</div>

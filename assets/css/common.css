@@ -10,6 +10,10 @@
 	font-weight: 300;
 }
 
+strong {
+	font-weight: bold !important;
+}
+
 body {
 	background: white;
 
@@ -34,7 +38,7 @@ a.btn,
 button,
 input[type="submit"] {
 	display: inline-block;
-	background-color: #01c7e1;
+	background: linear-gradient(to top, rgb(254,180,0), rgb(246,218,120));
 	padding: 0.2em 1.3em;
 	color: white;
 	text-transform: uppercase;
@@ -46,23 +50,11 @@ input[type="submit"] {
 a.btn:hover,
 button:hover,
 input[type="submit"]:hover {
-	background-color: aqua;
-}
-
-a.btn:focus,
-button:focus,
-input[type="submit"]:focus {
-	background-color: #02a9c2;
+	background: linear-gradient(to top, rgb(255,196,20), rgb(255,238,140));
 }
 
 .mobile {
 	display: none;
-}
-
-header {
-	width: 100%;
-	position: fixed;
-	z-index: 100;
 }
 
 section {
@@ -70,7 +62,7 @@ section {
 	margin: 0 auto;
 	background: white;
 	overflow: hidden;
-	padding: 0.8em 2.4em;
+	padding: 0.8em 0;
 	padding-bottom: 3.2em;
 	min-height: 100vh;
 	position: relative;
@@ -115,20 +107,11 @@ section .anchor {
 	clear: both;
 }
 
-section article > h1 {
-	font-weight: bold;
-	color: #267;
-	text-align: left;
-}
-
 @media screen and ( max-width: 400px ) {
 	section {
 		max-width: 100%;
 		padding-left: 2px;
 		padding-right: 2px;
-	}
-	section article > h1 {
-		text-align: center;
 	}
 }
 
