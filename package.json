@@ -15,6 +15,7 @@
 		"node-gyp": "^3.6.2",
 		"nodemailer": "*",
 		"twig": "*",
+		"uglify-js": "2.6.0",
 		"express-asset-manager": "*",
 		"node-minify": "*",
 		"express-minify-html": "*"
