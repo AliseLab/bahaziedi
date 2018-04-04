@@ -1,0 +1,54 @@
+header .basket {
+	position: fixed;
+	right: 0;
+	display: none;
+	text-align: center;
+}
+
+header .basket .items {
+	border-bottom: 1px solid silver;
+}
+
+header .basket .items .item {
+	text-align: right;
+}
+
+header .basket .items .title {
+	max-width: 24em;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    margin-bottom: -0.6em;
+    color: black;
+}
+
+header .basket .items .qty {
+	width: 3em;
+	text-align: center;
+	margin-left: 1em;
+}
+
+header .basket .items .delete {
+	color: maroon;
+	margin: 0 0.5em;
+	cursor: pointer;
+}
+
+header .basket .items .delete:hover {
+	color: red;
+}
+
+header .basket .total {
+	font-size: 1.8em;
+	margin-right: 2em;
+}
+
+header .basket .total .amount {
+	font-weight: bold;
+	color: rgb( 230, 160, 0 );
+}
+
+header .basket button {
+	font-size: 1.3em;
+}

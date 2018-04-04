@@ -4,11 +4,12 @@
 
 <header>
 	<div class="first">
-    	<span class="languages">
+    	{#<span class="languages">
     		{% for lang, label in languages %}
     			<a href="/{{ lang }}" {% if lang == language %} class="active" {% endif %}>{{ label }}</a>
     		{% endfor %}
-    	</span>
+    	</span>#}
+		<div class="basket-icon"><i class="fas fa-shopping-cart"></i>(<span class="qty">0</span>)</div>
 	</div>
 	<div class="second switcher">
     	<div class="mobile-menu fa fa-bars"></div>
@@ -19,6 +20,12 @@
     	</nav>
     	<div class="clear"></div>
     </div>
+	<div class="basket">
+		<div class="items">
+		</div>
+		<span class="total">{{ t( 'total' ) }}: <span class="amount"></span></span>
+		<button id="checkout">{{ t( 'checkout' ) }}</button>
+	</div>
 </header>
 
 <section data-section="home" class="home faded noalign">

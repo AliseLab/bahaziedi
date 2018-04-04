@@ -8,6 +8,8 @@ exports.trans = {
 	section_contacts: 'Kontakti',
 		
 	add_to_basket: 'Ielikt grozā',
+	checkout: 'Noformēt',
+	total: 'Kopā',
 	
 	all_rights_reserved: 'Visas tiesības aizsargātas',
 	

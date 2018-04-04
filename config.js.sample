@@ -13,7 +13,7 @@ exports.config = {
 	},
 	
 	sections: [
-		'bubblegum', 'candy', 'pastilla', 'basket', 'contacts',
+		'bubblegum', 'candy', 'pastilla', 'contacts',
 	],
 
 	mail: {

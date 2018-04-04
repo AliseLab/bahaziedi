@@ -52,3 +52,33 @@ header nav a.active {
 	}
 }
 
+header .basket-icon {
+	float: right;
+	font-size: 2em;
+	visibility: hidden;
+}
+
+header .basket-icon .qty {
+	font-weight: bold;
+	color: red;
+}
+
+header .basket-icon i {
+	margin-right: 0.3em;
+}
+
+header .basket-icon:hover {
+	cursor: pointer;
+}
+
+header .basket-icon:hover i,
+header .basket-icon.active i {
+	color: white;
+}
+
+header .basket {
+	background: wheat;
+	padding: 0.3em 0.7em;
+	border-left: 1px solid silver;
+	border-bottom: 1px solid silver;
+}
