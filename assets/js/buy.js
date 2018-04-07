@@ -44,6 +44,8 @@ $( document ).ready( function() {
 		close_basket();
 	});
 	
+	var orderproducts = $( 'form.order input[name="products"]' );
+	
 	var update_basket = () => {
 		var items = basketitems.find( '.item' );
 
@@ -53,21 +55,32 @@ $( document ).ready( function() {
 			basketlink.css( 'visibility', 'visible' );
 			var total_qty = 0;
 			var total_amount = 0;
+			
+			var products = [];
+			
 			items.each( function() {
 				var product = $( this ).attr( 'data-product' );
-				var qty = +$( this ).find( '.qty' ).val();
-				var price = product_prices[ product ];
-				var title = $( this ).find( '.title' ).html();
-				var sumamount = price * qty;
-				total_qty += qty;
-				total_amount += sumamount;
+				
+				var data = {
+					title: $( this ).find( '.title' ).html(),
+					qty: +$( this ).find( '.qty' ).val(),
+					price: product_prices[ product ],
+				};
+				
+				data.sumamount = data.price * data.qty;
+				
+				total_qty += data.qty;
+				total_amount += data.sumamount;
 				
 				var tr = $( '<tr></tr>' ).addClass( 'product' );
-				$( '<td></td>' ).html( title ).appendTo( tr );
-				$( '<td></td>' ).html( qty ).appendTo( tr );
-				$( '<td></td>' ).html( '&euro;' + sumamount.toFixed( 2 ) ).appendTo( tr );
+				$( '<td></td>' ).html( data.title ).appendTo( tr );
+				$( '<td></td>' ).html( data.qty ).appendTo( tr );
+				$( '<td></td>' ).html( '&euro;' + data.sumamount.toFixed( 2 ) ).appendTo( tr );
 				tr.insertAfter( productshead );
+				
+				products.push( data );
 			});
+			
 			basketlink.find( '.qty' ).html( total_qty );
 			basket.find( '.total .amount' ).html( '&euro;' + total_amount.toFixed( 2 ) );
 			
@@ -78,11 +91,13 @@ $( document ).ready( function() {
 				orderpage.show();
 				$( window ).resize();
 			}
+			orderproducts.val( JSON.stringify( products ) );
 			submitorder.show();
 		}
 		else {
 			close_basket();
 			basketlink.removeClass( 'active' ).css( 'visibility', 'hidden' );
+			orderproducts.val( '' );
 			submitorder.hide();
 		}
 	}

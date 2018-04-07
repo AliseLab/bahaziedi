@@ -11,6 +11,9 @@ exports.trans = {
 	checkout: 'Noformēt',
 	total: 'Kopā',
 	
+	order_ok: 'Paldies, pasūtījums ir nosūtīts. Mēs sazināsimies ar Jums tuvākajā laikā!',
+	order_failed: 'Kļūda pasūtījuma nosūtīšanā, uzrakstiet mums uz e-pastu',
+	
 	all_rights_reserved: 'Visas tiesības aizsargātas',
 	
 };

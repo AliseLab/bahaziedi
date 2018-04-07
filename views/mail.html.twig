@@ -1,4 +1,6 @@
 <html>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 	<head>
 		<title>{{ title }}</title>
 	</head>
@@ -11,12 +13,34 @@
 			<tr>
 				<th>{{ key }}</th>
 				<td>
-					{% if key == 'comments' %}<pre>{% endif %}
-					{{ value }}
-					{% if key == 'comments' %}</pre>{% endif %}
+					{% if key == 'comments' %}<pre>{% endif %}{{ value }}{% if key == 'comments' %}</pre>{% endif %}
 				</td>
 			</tr>
 		{% endfor %}
+		</table>
+		<h3>
+			Products
+		</h3>
+		<table width="100%" border="1">
+			<tr>
+				<th>Nosaukums</th>
+				<th>Daudzums</th>
+				<th>Cena</th>
+				<th>Kopā</th>
+			</tr>
+			{% for product in products %}
+				<tr>
+					<td>{{ product.title }}</td>
+					<td>{{ product.qty }}</td>
+					<td>{{ product.price }}</td>
+					<td>{{ product.qty * product.price }}</td>
+				</tr>
+			{% endfor %}
+			<tr>
+				<td></td>
+				<th colspan="2">Kopā</th>
+				<td>{{ total_amount }}</td>
+			</tr>
 		</table>
 	</body>
 </html>

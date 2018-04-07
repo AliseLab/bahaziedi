@@ -2,6 +2,14 @@
 
 {% block content %}
 
+<div class="fader"></div>
+<div class="notification order_ok">
+	{{ t( 'order_ok' ) }}
+</div>
+<div class="notification order_failed">
+	{{ t( 'order_failed' ) }} <a href="mailto:{{ config.mail.destination }}">{{ config.mail.destination }}</a>
+</div>
+
 <header>
 	<div class="first">
     	{#<span class="languages">

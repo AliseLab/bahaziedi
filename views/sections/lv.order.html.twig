@@ -45,11 +45,11 @@
 					<tr>
 						<td>
 							<span>Tālruņa nr</span>
-							<input type="text" name="phone" required/>
+							<input type="tel" name="phone" required/>
 						</td>
 						<td>
 							<span>E-pasts</span>
-							<input type="text" name="email" required/>
+							<input type="email" name="email" required/>
 						</td>
 					</tr>
 				</table>
@@ -69,6 +69,8 @@
 						<td class="total_amount"></td>
 					</tr>
 				</table>
+				<input type="hidden" name="products" value=""/>
+				<input type="hidden" name="lang" value="{{ language }}"/>
 			</td>
 		</tr>
 	</table>

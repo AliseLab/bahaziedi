@@ -9,6 +9,8 @@ exports.config = {
 
 	site: {
 		title: 'Baha "5 ziedi"',
+		phone: '+37112345678',
+		address: 'djhdgsdfhfgdf',
 		default_language: 'lv',
 	},
 	
