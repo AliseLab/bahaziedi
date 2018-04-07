@@ -1,0 +1,74 @@
+form.order {
+	text-align: center;
+}
+
+form.order table td {
+	padding: 0.2em 0.4em;
+	vertical-align: top;
+}
+
+form.order table td input,
+form.order table td select,
+form.order table td textarea {
+	width: 100%;
+}
+
+form.order table td textarea {
+	resize: none;
+	height: 7em;
+	width: 99%;
+	border: none;
+	outline: 1px solid silver;
+}
+
+@media screen and ( max-width: 600px ) {
+	
+	form.order table td.mobilealign {
+		display: block;
+		width: 100%;
+	}
+
+	form.order table tr,
+	form.order table td,
+	form.order table th {
+		padding-left: 0;
+		padding-right: 0;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	
+}
+
+form.order table.products {
+	width: 100%;
+}
+
+form.order table.products tr,
+form.order table.products td,
+form.order table.products th {
+	padding: 0 0.2em;
+	margin: 0;
+	vertical-align: middle;
+}
+
+form.order table.products tr td,
+form.order table.products tr th {
+	outline: 1px solid silver;
+}
+
+form.order table.products tr th {
+	font-weight: bold;
+	background-color: #efe;
+}
+
+form.order input[type="submit"] {
+	margin-top: 1em;
+	display: inline-block;
+	font-size: 1.6em;
+}
+
+form.order .total_qty,
+form.order .total_amount {
+	font-weight: bold;
+}

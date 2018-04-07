@@ -1,5 +1,7 @@
 exports.run = function( data, next ) {
 
+	var sections = [ 'bubblegum', 'candy', 'pastilla', 'pastilla2', 'contacts', 'order' ];
+	
 	var product_images_path = '/img/products/';
 	var product_images = {};
 	data.fs.readdir( './public' + product_images_path, ( err, products ) => {
@@ -14,6 +16,7 @@ exports.run = function( data, next ) {
 					res.render( 'index.html.twig', {
 						'languages' : data.languages,
 						'language' : req.language,
+						'sections' : sections,
 						'config' : data.getconfig( req.language ),
 						'js' : data.js,
 						'css' : data.css,

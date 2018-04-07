@@ -18,7 +18,8 @@ var unfade = function() {
 					opacity: 1,
 				}, 1500);
 			}
-			if ( !$( 'body' ).hasClass( 'scrolling' ) ) {
+			// TODO
+			/*if ( !$( 'body' ).hasClass( 'scrolling' ) ) {
 				var cls = el.attr( 'data-section' );
 				$( 'header nav a' ).each( function() {
 					var a = $(this);
@@ -29,13 +30,7 @@ var unfade = function() {
 					else
 						a.removeClass( 'active' );
 				});
-				// TODO
-				/*if ( window.location.hash != '#' + cls ) {
-					$( 'body' ).addClass( 'hashchange' );
-					window.location.hash = '#' + cls;
-					$( 'body' ).removeClass( 'hashchange' );
-				}*/
-			}
+			}*/
 		}
 	}
 }

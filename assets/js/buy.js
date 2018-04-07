@@ -5,19 +5,43 @@ $( document ).ready( function() {
 	var basketqty = basketlink.find( '.qty' );
 	
 	var product_names = {};
+	var product_prices = {};
+	var product_img = {};
+
 	$( '.product[data-product]' ).each( function() {
 		product_names[ $(this).attr( 'data-product' ) ] = $(this).find( 'h1' ).html();
+		product_prices[ $(this).attr( 'data-product' ) ] = $(this).find( '.buy .price' ).html().replace( /€/, '' ).trim();
+		product_img[ $(this).attr( 'data-product' ) ] = $(this).find( 'img:first' ).attr( 'src' );
 	});
 	
-	var product_prices = {};
-	$( '.product[data-product]' ).each( function() {
-		product_prices[ $(this).attr( 'data-product' ) ] = $(this).find( '.buy .price' ).html().replace( /€/, '' ).trim();
-	});
 	
 	var basketitems = basket.find( '.items' );
 	
+	var productstable = $( 'form.order table.products');
+	var productshead = productstable.find( 'tr:first' );
+	var submitorder = $( 'form.order input[type="submit"]' );
+	var productstotalqty = productstable.find( '.total_qty' );
+	var productstotalamount = productstable.find( '.total_amount' );
+
+	var open_basket = () => {
+		basketlink.addClass( 'active' );
+		basket.slideDown( 'fast' );
+	}
+	
+	var close_basket = () => {
+		basket.slideUp( 'fast' );
+		basketlink.removeClass( 'active' );
+	}
+	
+	basket.find( 'a.btn' ).click( function() {
+		close_basket();
+	});
+	
 	var update_basket = () => {
 		var items = basketitems.find( '.item' );
+
+		productstable.find( 'tr.product' ).remove();
+		
 		if ( items.length > 0 ) {
 			basketlink.css( 'visibility', 'visible' );
 			var total_qty = 0;
@@ -26,15 +50,29 @@ $( document ).ready( function() {
 				var product = $( this ).attr( 'data-product' );
 				var qty = +$( this ).find( '.qty' ).val();
 				var price = product_prices[ product ];
+				var title = $( this ).find( '.title' ).html();
+				var sumamount = price * qty;
 				total_qty += qty;
-				total_amount += price * qty;
+				total_amount += sumamount;
+				
+				var tr = $( '<tr></tr>' ).addClass( 'product' );
+				$( '<td></td>' ).html( title + ' x ' + qty ).appendTo( tr );
+				$( '<td></td>' ).html( qty ).appendTo( tr );
+				$( '<td></td>' ).html( '&euro;' + sumamount.toFixed( 2 ) ).appendTo( tr );
+				tr.insertAfter( productshead );
 			});
 			basketlink.find( '.qty' ).html( total_qty );
-			basket.find( '.total .amount' ).html( total_amount.toFixed( 2 ) + '&euro;' );
+			basket.find( '.total .amount' ).html( '&euro;' + total_amount.toFixed( 2 ) );
+			
+			productstotalqty.html( total_qty );
+			productstotalamount.html( '&euro;' + total_amount.toFixed( 2 ) );
+			
+			submitorder.show();
 		}
 		else {
-			basket.slideUp( 'fast' );
+			close_basket();
 			basketlink.removeClass( 'active' ).css( 'visibility', 'hidden' );
+			submitorder.hide();
 		}
 	}
 	
@@ -45,9 +83,17 @@ $( document ).ready( function() {
 		});
 	});
 	
-	basketitems.on( 'click', '.qty', update_basket );
-	basketitems.on( 'keyup', '.qty', update_basket );
-	basketitems.on( 'change', '.qty', update_basket );
+	var qty_change = function() {
+		if ( $(this).val() !== '' ) {
+			if ( +$(this).val() < 1 )
+				$(this).val( 1 );
+		}
+		update_basket();
+	}
+	
+	basketitems.on( 'click', '.qty', qty_change );
+	basketitems.on( 'keyup', '.qty', qty_change );
+	basketitems.on( 'change', '.qty', qty_change );
 	
 	var add_to_basket = ( item ) => {
 		
@@ -59,6 +105,7 @@ $( document ).ready( function() {
 				.attr( 'data-product', item )
 			;
 			
+			$( '<img alt="" src="' + product_img[ item ] + '"/>' ).appendTo( itemdiv );
 			$( '<a class="title" href="#' + item + '"></a>' ).html( product_names[ item ] ).appendTo( itemdiv );
 			$( '<input type="number" class="qty" value="1" min="1"/>' ).appendTo( itemdiv );
 			$( '<i class="delete fas fa-trash-alt"></i>' ).appendTo( itemdiv );
@@ -116,12 +163,10 @@ $( document ).ready( function() {
 	
 	basketlink.on( 'click', function() {
 		if ( basketlink.hasClass( 'active' ) ) {
-			basket.slideUp( 'fast' );
-			basketlink.removeClass( 'active' );
+			close_basket();
 		}
 		else {
-			basketlink.addClass( 'active' );
-			basket.slideDown( 'fast' );
+			open_basket();
 		}
 	});
 	

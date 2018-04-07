@@ -12,7 +12,7 @@ exports.config = {
 		default_language: 'lv',
 	},
 	
-	sections: [
+	menu: [
 		'bubblegum', 'candy', 'pastilla', 'contacts',
 	],
 

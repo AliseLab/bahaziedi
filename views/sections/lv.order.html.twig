@@ -1,0 +1,77 @@
+<form class="order" action="/order" method="post">
+
+	<h2>Informācija par pircēju</h2>
+	<table>
+		<tr>
+			<td class="mobilealign" width="50%">
+				<table>
+					<tr>
+						<td width="50%">
+							<span>Vārds</span>
+							<input type="text" name="name" required/>	
+						</td>
+						<td>
+							<span>Uzvārds</span>
+							<input type="text" name="surname" required/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span>Valsts</span>
+							<select name="country" required>
+								<option value="Latvia">Latvia</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span>Adrese</span>
+							<input type="text" name="address" placeholder="Ielas nosaukums un numurs"/>
+							<input type="text" name="address2" placeholder="Dzīvokļa vai cīts numurs"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span>Pilsēta</span>
+							<input type="text" name="city"/>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<span>Pasta indekss</span>
+							<input type="text" name="zip" required/>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<span>Tālruņa nr</span>
+							<input type="text" name="phone" required/>
+						</td>
+						<td>
+							<span>E-pasts</span>
+							<input type="text" name="email" required/>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td class="mobilealign">
+				Piegādes piezīmes
+				<textarea name="comments" placeholder="Piezīmes par pasūtījumu."></textarea>
+				<table class="products">
+					<tr>
+						<th>Produkta nosaukums</th>
+						<th>Daudzums</th>
+						<th>Kopā</th>
+					</tr>
+					<tr>
+						<th>Kopā</th>
+						<td class="total_qty"></td>
+						<td class="total_amount"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<input type="submit" value="Apstiprināt pasūtījumu"/>
+
+</form>

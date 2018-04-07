@@ -14,7 +14,7 @@ header .basket .items .item {
 }
 
 header .basket .items .title {
-	max-width: 24em;
+	max-width: 20em;
     overflow: hidden;
     display: inline-block;
     white-space: nowrap;
@@ -42,6 +42,7 @@ header .basket .items .delete:hover {
 header .basket .total {
 	font-size: 1.8em;
 	margin-right: 2em;
+	margin-left: 1em;
 }
 
 header .basket .total .amount {
@@ -51,4 +52,21 @@ header .basket .total .amount {
 
 header .basket button {
 	font-size: 1.3em;
+	margin-right: 1em;
+}
+
+header .basket img {
+	height: 1em;
+}
+
+@media screen and ( max-width: 350px ) {
+	header .basket img {
+		display: none;
+	}
+}
+
+@media screen and ( max-width: 330px ) {
+	header .basket .items .title {
+		max-width: 16em;
+	}
 }
