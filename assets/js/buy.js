@@ -17,6 +17,13 @@ $( document ).ready( function() {
 	
 	var basketitems = basket.find( '.items' );
 	
+	var orderpage = $( 'section.order' );
+	orderpage.hide();
+	
+	orderpage.find( '*[required]' ).each( function() {
+		$( this ).parent().find( '> span' ).addClass( 'required' );
+	});
+	
 	var productstable = $( 'form.order table.products');
 	var productshead = productstable.find( 'tr:first' );
 	var submitorder = $( 'form.order input[type="submit"]' );
@@ -25,11 +32,11 @@ $( document ).ready( function() {
 
 	var open_basket = () => {
 		basketlink.addClass( 'active' );
-		basket.slideDown( 'fast' );
+		basket.stop( true ).slideDown( 'fast' );
 	}
 	
 	var close_basket = () => {
-		basket.slideUp( 'fast' );
+		basket.stop( true ).slideUp( 'fast' );
 		basketlink.removeClass( 'active' );
 	}
 	
@@ -56,7 +63,7 @@ $( document ).ready( function() {
 				total_amount += sumamount;
 				
 				var tr = $( '<tr></tr>' ).addClass( 'product' );
-				$( '<td></td>' ).html( title + ' x ' + qty ).appendTo( tr );
+				$( '<td></td>' ).html( title ).appendTo( tr );
 				$( '<td></td>' ).html( qty ).appendTo( tr );
 				$( '<td></td>' ).html( '&euro;' + sumamount.toFixed( 2 ) ).appendTo( tr );
 				tr.insertAfter( productshead );
@@ -67,6 +74,10 @@ $( document ).ready( function() {
 			productstotalqty.html( total_qty );
 			productstotalamount.html( '&euro;' + total_amount.toFixed( 2 ) );
 			
+			if ( orderpage.css( 'display' ) == 'none' ) {
+				orderpage.show();
+				$( window ).resize();
+			}
 			submitorder.show();
 		}
 		else {

@@ -72,3 +72,9 @@ form.order .total_qty,
 form.order .total_amount {
 	font-weight: bold;
 }
+
+form.order span.required::after {
+	content: '*';
+	color: red;
+	font-weight: bold;
+}
