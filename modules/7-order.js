@@ -29,7 +29,6 @@ exports.run = function( data, next ) {
 			products: products,
 			total_amount: total_amount,
 		}, ( err, html ) => {
-			var url = '/' + req.body.lang;
 			
 			var mailOptions = {
 				from: req.body.email,
@@ -39,7 +38,7 @@ exports.run = function( data, next ) {
 			};
 			
 			transport.sendMail( mailOptions, function( error, info ) {
-				url = '/' + req.body.lang + '?mailresult=';
+				var url = '/' + req.body.lang;
 				if ( error ) {
 					console.log( error );
 					url += '#order_failed';
