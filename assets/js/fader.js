@@ -13,10 +13,13 @@ var unfade = function() {
 	for ( var i in sectiontop ) {
 		var el = sectiontop[i];
 		if ( i <= scroll ) {
-			if ( el.hasClass( 'faded' ) ) {
-				el.css( 'opacity', 0 ).removeClass( 'faded' ).animate({
+			if ( el.hasClass( 'faded' ) && !el.hasClass( 'fadingout' ) ) {
+				var fadems = 1200 / ( 1.01 - el.css( 'opacity' ) );
+				el.addClass( 'fadingout' ).stop( true ).animate({
 					opacity: 1,
-				}, 1500);
+				}, fadems, function() {
+					$( this ).removeClass( 'faded' );
+				});
 			}
 			// TODO
 			/*if ( !$( 'body' ).hasClass( 'scrolling' ) ) {
