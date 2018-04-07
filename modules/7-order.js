@@ -31,7 +31,7 @@ exports.run = function( data, next ) {
 		}, ( err, html ) => {
 			
 			var mailOptions = {
-				from: req.body.email,
+				from: data.config.mail.destination,
 				to: data.config.mail.destination,
 				subject: title,
 				html: html,
