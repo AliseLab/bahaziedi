@@ -25,7 +25,7 @@ $( document ).ready( function() {
 	});
 	
 	var productstable = $( 'form.order table.products');
-	var productshead = productstable.find( 'tr:first' );
+	var productshead = productstable.find( 'tr.start' );
 	var submitorder = $( 'form.order input[type="submit"]' );
 	var productstotalqty = productstable.find( '.total_qty' );
 	var productstotalamount = productstable.find( '.total_amount' );
@@ -45,6 +45,47 @@ $( document ).ready( function() {
 	});
 	
 	var orderproducts = $( 'form.order input[name="products"]' );
+	
+	var delivery = orderpage.find( 'td.delivery' );
+	var delivery_price = orderpage.find( 'td.delivery_price' );
+	var order_amount = orderpage.find( 'td.order_amount' );
+	
+	var update_order_price = function() {
+		var total_amount = +productstotalamount.html().replace( /€/, '' );
+		if ( total_amount >= 35 ) {
+			delivery.find( '.less35' ).addClass( 'disabled' );
+			delivery.find( '.more35' ).removeClass( 'disabled' );
+		}
+		else {
+			delivery.find( '.more35' ).addClass( 'disabled' );
+			delivery.find( '.less35' ).removeClass( 'disabled' );
+		}
+		delivery.find( '.disabled input' ).each( function() {
+			$( this ).prop( 'checked', false );
+		});
+		var radio = delivery.find( 'input:checked' );
+		if ( radio.length > 0 ) {
+			var price = +radio.attr( 'data-price' );
+			delivery_price.html( '&euro;' + price.toFixed( 2 ) );
+			if ( total_amount > 0 ) {
+				total_amount += price;
+				order_amount.html( '&euro;' + total_amount.toFixed( 2 ) );
+			}
+			else {
+				order_amount.html( '' );
+			}
+		}
+		else {
+			delivery_price.html( '' );
+			order_amount.html( '' );
+		}
+	};
+	
+	delivery.on( 'click', 'input', update_order_price );
+
+	delivery.on( 'click', '.disabled', function( e ) {
+		return false;
+	});
 	
 	var update_basket = () => {
 		var items = basketitems.find( '.item' );
@@ -89,7 +130,6 @@ $( document ).ready( function() {
 			
 			if ( orderpage.css( 'display' ) == 'none' ) {
 				orderpage.show();
-				$( window ).resize();
 			}
 			orderproducts.val( JSON.stringify( products ) );
 			submitorder.show();
@@ -98,8 +138,12 @@ $( document ).ready( function() {
 			close_basket();
 			basketlink.removeClass( 'active' ).css( 'visibility', 'hidden' );
 			orderproducts.val( '' );
+			productstotalqty.html( '' );
+			productstotalamount.html( '' );
 			submitorder.hide();
 		}
+		$( window ).resize();
+		update_order_price();
 	}
 	
 	basketitems.on( 'click', '.delete', function() {

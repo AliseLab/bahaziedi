@@ -60,13 +60,15 @@ $( document ).ready( function() {
 	setTimeout( checkhash, 100 );
 	
 	var checkhashtimeout = null;
-	$( window ).resize( function() {
-		if ( checkhashtimeout )
-			clearTimeout( checkhashtimeout );
-		checkhashtimeout = setTimeout( function() {
-			checkhashtimeout = null;
-			checkhash();
-		}, 100 );
+	$( window ).resize( function( e ) {
+		if ( e.originalEvent ) {
+			if ( checkhashtimeout )
+				clearTimeout( checkhashtimeout );
+			checkhashtimeout = setTimeout( function() {
+				checkhashtimeout = null;
+				checkhash();
+			}, 100 );
+		}
 	} );
 	
 });

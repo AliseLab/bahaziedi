@@ -2,24 +2,24 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
 	<head>
-		<title>{{ title }}</title>
+		<title>{{ messages[ 'mail_order' ] }}</title>
 	</head>
 	<body>
 		<h2>
-			{{ title }}
+			{{ messages[ 'mail_order' ] }}
 		</h2>
 		<table width="100%" border="1">
 		{% for key, value in data %}
 			<tr>
-				<th>{{ key }}</th>
-				<td>
+				<th width="0" align="right">{{ messages[ 'mail_' ~ key ] }}</th>
+				<td width="100%">
 					{% if key == 'comments' %}<pre>{% endif %}{{ value }}{% if key == 'comments' %}</pre>{% endif %}
 				</td>
 			</tr>
 		{% endfor %}
 		</table>
 		<h3>
-			Products
+			{{ messages[ 'mail_products' ] }}
 		</h3>
 		<table width="100%" border="1">
 			<tr>
@@ -30,16 +30,24 @@
 			</tr>
 			{% for product in products %}
 				<tr>
-					<td>{{ product.title }}</td>
-					<td>{{ product.qty }}</td>
-					<td>{{ product.price }}</td>
-					<td>{{ product.qty * product.price }}</td>
+					<td align="center">{{ product.title }}</td>
+					<td align="center">{{ product.qty }}</td>
+					<td align="center">{{ product.price }}</td>
+					<td align="center">{{ product.price_total }}</td>
 				</tr>
 			{% endfor %}
 			<tr>
+				<th colspan="3" align="center">
+					{{ messages[ 'mail_delivery' ] }}
+				</td>
+				<td align="center">
+					{{ delivery_amount }}
+				</td>
+			</tr>
+			<tr>
 				<td></td>
 				<th colspan="2">Kopā</th>
-				<td>{{ total_amount }}</td>
+				<td align="center">{{ total_amount }}</td>
 			</tr>
 		</table>
 	</body>

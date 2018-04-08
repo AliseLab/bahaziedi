@@ -1,3 +1,15 @@
+{% set delivery_options = [
+	 [ 'Kurjers ( Rīga )', '2.00', '(no 16:00 līdz 18:00)', '' ],
+	 [ 'Kurjers ( Rīga )', '2.00', '(no 18:00 līdz 20:00)', '' ],
+	 [ 'Saņemt pasūtījumu veikala ofisā', '', '(trešdien un piektdien no 17:00 līdz 19:00)' ],
+	 [ 'Saņemt pasūtījumu veikala ofisā', '', '(pirmdien no 13:00 līdz 15:00)' ],
+	 [ 'Omniva', '2.88' ],
+	 [ 'Latvijas pasts (ārpus Latvijas) atkarībā no valsts)' ],
+	 [ 'Latvijas pasts (Latvija)', '3.90' ],
+	 [ 'Bezmaksas piegāde ( pasūtījumam virs 35 eiro )', '', '', 'more35' ]
+] %}
+
+
 <form class="order" action="/order" method="post">
 
 	<h2>Informācija par pircēju</h2>
@@ -39,7 +51,7 @@
 					<tr>
 						<td colspan="2">
 							<span>Pasta indekss</span>
-							<input type="text" name="zip" required/>
+							<input type="text" name="zip"/>
 						</td>
 					</tr>
 					<tr>
@@ -58,15 +70,46 @@
 				Piegādes piezīmes
 				<textarea name="comments" placeholder="Piezīmes par pasūtījumu."></textarea>
 				<table class="products">
-					<tr>
+					<tr class="start">
 						<th>Produkta nosaukums</th>
 						<th>Daudzums</th>
 						<th>Kopā</th>
 					</tr>
 					<tr>
-						<th>Kopā</th>
+						<th>Par preces</th>
 						<td class="total_qty"></td>
 						<td class="total_amount"></td>
+					</tr>
+					<tr class="delivery_tr">
+						<td colspan="3" class="delivery_td">
+							<table>
+								<tr>
+									<th>Piegāde</th>
+									<td class="delivery">
+										{% for option in delivery_options %}
+											<div class="{{ option[3] }}">
+												<label>
+													<input type="radio" name="delivery" value="{{ option[0] }} {{ option[2] }} {% if option[1] %}&euro;{{ option[1] }}{% endif %}" data-price="{{ option[1] }}" required/>
+													{{ option[0] }}
+													{% if option[1] %}
+														<strong>: &euro;{{ option[1] }}</strong>
+													{% endif %}
+													{% if option[2] %}
+														<i>- {{ option[2] }}</i>
+													{% endif %}
+												</label>
+											</div>
+										{% endfor %}
+									</td>
+									<td class="delivery_price">
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<th>Kopā</th>
+						<td class="order_amount" colspan="2"></td>
 					</tr>
 				</table>
 				<input type="hidden" name="products" value=""/>

@@ -13,6 +13,15 @@ form.order table td textarea {
 	width: 100%;
 }
 
+form.order table td input[type="radio"] {
+	width: auto;
+}
+
+form.order table td input,
+form.order table td select {
+	font-size: 1.15em;
+}
+
 form.order table td textarea {
 	resize: none;
 	height: 7em;
@@ -28,9 +37,9 @@ form.order table td textarea {
 		width: 100%;
 	}
 
-	form.order table tr,
-	form.order table td,
-	form.order table th {
+	form.order > table tr,
+	form.order > table td,
+	form.order > table th {
 		padding-left: 0;
 		padding-right: 0;
 		margin-left: 0;
@@ -78,3 +87,39 @@ form.order span.required::after {
 	color: red;
 	font-weight: bold;
 }
+
+form.order td.delivery div {
+	text-align: left;
+	padding: 0.2em;
+	padding-left: 2em;
+	font-size: 0.9em;
+}
+
+form.order td.delivery input {
+	margin-left: -1.4em;
+}
+
+form.order td.order_amount {
+	font-weight: bold;
+	font-size: 1.4em;
+}
+
+form.order .delivery_td {
+	outline: none !important;
+}
+
+form.order .delivery_td > table {
+	width: 100%;
+}
+
+form.order .delivery_tr,
+form.order .delivery_td {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+form.order .delivery .disabled {
+	background: #ddd;
+	color: #666;
+}
+
