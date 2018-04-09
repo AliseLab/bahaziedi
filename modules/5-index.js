@@ -18,12 +18,14 @@ exports.run = function( data, next ) {
 					
 					var pos = req.url.indexOf( '?order=' );
 					if ( pos >= 0 ) {
-						var filename = './orders/' + req.url.substring( pos + 7 ) + '.client.html';
+						var ordernr = req.url.substring( pos + 7 ).replace( /\./g, '_' ).replace( /\//g, '_' );
+						var filename = './orders/' + ordernr + '.client.html';
 						try {
 							order = data.fs.readFileSync( filename );
 						}
 						catch ( e ) {
 							res.redirect( '/' + req.language );
+							return;
 						}
 						data.fs.unlinkSync( filename );
 					}

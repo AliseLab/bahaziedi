@@ -5,3 +5,14 @@ div.invoice {
 	padding: 1em 2em;
 	margin: -1em;
 }
+
+div.invoice h2 .close {
+	float: right;
+	font-size: 1.6em;
+	color: maroon;
+	cursor: pointer;
+}
+
+div.invoice h2 .close:hover {
+	color: red;
+}

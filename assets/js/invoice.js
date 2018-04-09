@@ -3,6 +3,8 @@ if ( invoice.length > 0 ) {
 	var fader = $( '.fader' );
 	fader.show();
 
+	$( '<i class="close fas fa-times"></i>' ).appendTo( invoice.find( '> h2:first' ) );
+	
 	var invoicew = invoice.outerWidth();
 	var invoiceh = invoice.outerHeight();
 	
@@ -38,8 +40,11 @@ if ( invoice.length > 0 ) {
 	align_invoice();
 	$( window ).on( 'resize', align_invoice );
 	
-	fader.on( 'click', function() {
+	var closeinvoice = function() {
 		invoice.stop( true ).fadeOut( 'fast' );
 		fader.stop( true ).fadeOut( 'fast' );
-	});
+	};
+	
+	fader.on( 'click', closeinvoice );
+	invoice.find( '.close' ).on( 'click', closeinvoice );
 }
