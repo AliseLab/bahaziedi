@@ -10,8 +10,8 @@
 
 	{% block description %}
 	
-		<p><strong>Pastilas ar apelsīnu un plūškoka ziedu aromātu, 5 ziedu essencēm un saldinātāju</strong></p>
-		<p><strong>Lietošana</strong>: Košļāt vienu pastilu pēc nepieciešamības.</p>
+		<p>Pastilas ar apelsīnu un plūškoka ziedu aromātu, 5 ziedu essencēm un saldinātāju</p>
+		{#<p><strong>Lietošana</strong>: Košļāt vienu pastilu pēc nepieciešamības.</p>
 		<p><strong>Sastāvs</strong>: Apjoma palielinātāji (sorbitols, maltitols, izomalts), recinātājs (gumarābika), naturāli aromatizētāji (plūškoka zieds, apelsīns), saldinātājs (ksilitols), glazētājviela (palmu kodolu eļļa, bišu vasks), ziedu essences (Rock rose (saulrozīte), Clematis (mežvītenis), Impatiens (sprigane), Cherry plum (plūme), Star of bethlehem (baltstarīte)).</p>
 		<p>
 			<strong>Produkta uzturvērtība normālās vērtības 100 g:</strong><br/>
@@ -25,7 +25,14 @@
 			<strong>Sāls</strong> 0.60g
 		</p>
 		<p>Pārmērīgs patēriņš var izraisīt caureju.</p>
-		<p>Izgatavots Šveicē pēc Bach Flower Remedies Limited (Vimbeldon, SW19 8UH, Lielbritānija) pasūtījuma.</p>
+		<p>Izgatavots Šveicē pēc Bach Flower Remedies Limited (Vimbeldon, SW19 8UH, Lielbritānija) pasūtījuma.</p>#}
+		
+		{% include 'templates/default_composition.html.twig' %}
+		
+		<p>Pastilas sastāvā esošas 5 ziedu essences palīdz:</p>
+ 		<p>pārvarēt: stresu, negatīvus pārdzīvojumus, sliktu garastāvokli,emocionālu pārslodzi;</p>
+		<p>uzlabo izturību pret stresu un rada emocionālu stabilitāti;</p>
+		<p>nodrošina ķermeņa pašregulēšanās mehānismu aktivizēšanu, atjaunojot kontaktu ar mūsu pašu garīgajiem spēkiem un caur tiem – ariekšējiem organisma resursiem, kas savukārt veicina pašizārstēšanos;</p>
 	
 	{% endblock %}
 

@@ -23,8 +23,9 @@
     	<div class="mobile-menu fa fa-bars"></div>
     	<nav>
     		{% for section in config.menu %}
-        		<a href="#{{ section }}">{{ t( 'section_' ~ section ) }}</a>
+        		<a class="menu" href="#{{ section }}">{{ t( 'section_' ~ section ) }}</a>
         	{% endfor %}
+        	<a target="_blank" href="https://bahazieds.lv/">E.Baha essences</a>
     	</nav>
     	<div class="clear"></div>
     </div>
@@ -32,7 +33,7 @@
 		<div class="items">
 		</div>
 		<span class="total">{{ t( 'total' ) }}: <span class="amount"></span></span>
-		<a class="btn" href="#order">{{ t( 'checkout' ) }}</a>
+		<a class="btn menu" href="#order">{{ t( 'checkout' ) }}</a>
 	</div>
 </header>
 
@@ -52,9 +53,16 @@
 	</section>
 {% endfor %}
 
+{% if order %}
+<div class="invoice">
+	{{ order }}
+</div>
+{% endif %}
 
 <footer>
-    {{ t( 'all_rights_reserved' ) }}
+    <div class="left">{{ t( 'all_rights_reserved' ) }} &copy; 2018 BahaZieds</div>
+    <div class="right">Created by <a target="_blank" href="https://aliselab.com">aliselab.com</a></div>
+    <div class="clear"></div>
 </footer>
 
 {% endblock %}

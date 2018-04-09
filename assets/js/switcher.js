@@ -2,7 +2,7 @@ $( document ).ready( function() {
 	
 	$( '.switcher' ).each( function() {
 		var switcher = $(this);
-		switcher.on( 'click', 'a', function() {
+		switcher.on( 'click', 'a.menu', function() {
 			var thishref = $(this).attr( 'href' );
 			switcher.find( 'a' ).each( function() {
 				if ( $(this).attr( 'href' ) != thishref )

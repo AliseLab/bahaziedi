@@ -31,7 +31,7 @@ $( document ).ready( function() {
 		return false;
 	};
 	
-	$( 'body' ).on( 'click', 'a', function() {
+	$( 'body' ).on( 'click', 'a.menu', function() {
 		var href = $(this).attr( 'href' );
 		if ( href.substring( 0, 1 ) == '#' ) {
 			scroll_to_section( href );
@@ -66,7 +66,7 @@ $( document ).ready( function() {
 				clearTimeout( checkhashtimeout );
 			checkhashtimeout = setTimeout( function() {
 				checkhashtimeout = null;
-				checkhash();
+				// checkhash(); // tmp disabled because mobile devices
 			}, 100 );
 		}
 	} );

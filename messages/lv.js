@@ -15,7 +15,6 @@ exports.trans = {
 	order_failed: 'Kļūda pasūtījuma nosūtīšanā, uzrakstiet mums uz e-pastu',
 	
 	mail_title: 'Pasūtījums',
-	mail_order: 'Jūsu pasūtījums',
 	mail_name: 'Vards',
 	mail_surname: 'Uzvārds',
 	mail_country: 'Valsts',
@@ -27,6 +26,7 @@ exports.trans = {
 	mail_email: 'E-pasts',
 	mail_comments: 'Piegādes piezīmes',
 	mail_delivery: 'Piegāde',
+	mail_payment: 'Maksājuma veids',
 	mail_products: 'Produkti',
 	
 	all_rights_reserved: 'Visas tiesības aizsargātas',

@@ -216,3 +216,20 @@ header.hidden {
 	opacity: 0.5;
 	display: none;
 }
+
+footer div {
+	margin: 0 2em;
+}
+
+footer a {
+	color: white;
+	font-weight: bold;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}

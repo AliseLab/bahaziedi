@@ -13,7 +13,23 @@ exports.run = function( data, next ) {
 			var done = () => {
 			
 				var render_func = function( req, res ) {
+					
+					var order = null;
+					
+					var pos = req.url.indexOf( '?order=' );
+					if ( pos >= 0 ) {
+						var filename = './orders/' + req.url.substring( pos + 7 ) + '.client.html';
+						try {
+							order = data.fs.readFileSync( filename );
+						}
+						catch ( e ) {
+							res.redirect( '/' + req.language );
+						}
+						data.fs.unlinkSync( filename );
+					}
+					
 					res.render( 'index.html.twig', {
+						'order' : order,
 						'languages' : data.languages,
 						'language' : req.language,
 						'sections' : sections,

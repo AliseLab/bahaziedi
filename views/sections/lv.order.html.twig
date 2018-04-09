@@ -64,11 +64,15 @@
 							<input type="email" name="email" required/>
 						</td>
 					</tr>
+					<tr>
+						<td colspan="2">
+							Piegādes piezīmes
+							<textarea name="comments" placeholder="Piezīmes par pasūtījumu."></textarea>
+						</td>
+					</tr>
 				</table>
 			</td>
 			<td class="mobilealign">
-				Piegādes piezīmes
-				<textarea name="comments" placeholder="Piezīmes par pasūtījumu."></textarea>
 				<table class="products">
 					<tr class="start">
 						<th>Produkta nosaukums</th>
@@ -102,6 +106,23 @@
 										{% endfor %}
 									</td>
 									<td class="delivery_price">
+									</td>
+								</tr>
+								<tr>
+									<th>Apmaksas veids</th>
+									<td colspan="2" class="payment">
+										<div>
+											<label>
+												<input type="radio" name="payment" value="bank" required/>
+												Pārskatījums
+											</label>
+										</div>
+										<div>
+											<label>
+												<input type="radio" name="payment" value="paypal" required/>
+												PayPal
+											</label>
+										</div>
 									</td>
 								</tr>
 							</table>

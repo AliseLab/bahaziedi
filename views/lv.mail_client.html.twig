@@ -1,0 +1,92 @@
+{% if full %}
+<html>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<head>
+		<title>Jūsu pasūtījums</title>
+	</head>
+	<body>
+{% endif %}
+		<h2>
+			Jūsu pasūtījums tiks nodots piegādei pēc Jūsu maksājuma saņemšanas.
+		</h2>
+		{% if payment == 'bank' %}
+			<h3>Rekvizīti:<br/>
+				&nbsp;&nbsp;Pašnodarbināta persona "Anna Ozola"<br/>
+				&nbsp;&nbsp;Reģ. Nr.: 15057610101<br/>
+				&nbsp;&nbsp;Swedbanka: LV25HABA000151A147525
+			</h3>
+		{% elseif payment == 'paypal' %}
+		
+		{% endif %}
+		
+		<p>Informēsim Jūs par maksājuma saņemšanu un pasūtījuma nodošanu piegādei, nosūtot vēstuli uz Jūsu e-pasta adresi. Piegādes laiks 1-5 darba dienas no pasūtījuma apmaksas saņemšanas dienas.</p>
+		
+		<table width="50%">
+			<tr>
+				<th>RĒĶINA NR.</th>
+				<th>DATUMS</th>
+				<th>KOPĀ</th>
+				<th>APMAKSAS VEIDS</th>
+			</tr>
+			<tr>
+				<td align="center">{{ ordernr }}</td>
+				<td align="center">{{ date }}</td>
+				<td align="center">&euro;{{ total_amount }}</td>
+				<td align="center">
+					{% if payment == 'bank' %}
+						Pārskatījums
+					{% elseif payment == 'paypal' %}
+						PayPal
+					{% endif %}
+				</td>
+			</tr>
+		</table>
+		
+		<h2>Informācija par pasūtījumu</h2>
+		
+		<table width="100%" border="1">
+			<tr>
+				<th>Nosaukums</th>
+				<th>Daudzums</th>
+				<th>Cena</th>
+				<th>Kopā</th>
+			</tr>	
+			{% for product in products %}
+				<tr>
+					<td align="center">{{ product.title }}</td>
+					<td align="center">{{ product.qty }}</td>
+					<td align="center">&euro;{{ product.price }}</td>
+					<td align="center">&euro;{{ product.price_total }}</td>
+				</tr>
+			{% endfor %}
+			<tr>
+				<th></th>
+				<th colspan="2" align="center">
+					Piegāde
+				</td>
+				<td align="center">
+					&euro;{{ delivery_amount }}
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<th colspan="2	">Apmaksas veids</th>
+				<td align="center">
+					{% if payment == 'bank' %}
+						Pārskatījums
+					{% elseif payment == 'paypal' %}
+						PayPal
+					{% endif %}
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<th colspan="2">Kopā</th>
+				<td align="center"><strong>&euro;{{ total_amount }}</strong></td>
+			</tr>
+		</table>
+{% if full %}
+	</body>
+</html>
+{% endif %}

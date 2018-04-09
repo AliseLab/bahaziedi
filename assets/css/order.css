@@ -50,6 +50,7 @@ form.order table td textarea {
 }
 
 form.order table.products {
+	margin-top: 2.4em;
 	width: 100%;
 }
 
@@ -123,3 +124,6 @@ form.order .delivery .disabled {
 	color: #666;
 }
 
+form.order .payment {
+	text-align: left;
+}

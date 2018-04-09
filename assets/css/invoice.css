@@ -1,0 +1,7 @@
+div.invoice {
+	position: fixed;
+	background: white;
+	z-index: 170;
+	padding: 1em 2em;
+	margin: -1em;
+}
